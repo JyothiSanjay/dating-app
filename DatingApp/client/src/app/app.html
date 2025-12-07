@@ -1,6 +1,6 @@
-<div class="card bg-base-100 w-1/2 mx-auto p-10 mt-10 shadow-xl">
+<app-nav />
+<!-- <div class="card bg-base-100 w-1/2 mx-auto p-10 mt-24 shadow-xl">
   <h1 class="text-3xl font-bold">{{title}}!!!</h1>
-  <h2>List of users</h2>
   <ul class="list">
   @for (member of members(); track member.id) {
     <li class="list-row items-center">
@@ -11,5 +11,12 @@
   </li>
   }
 </ul>
-</div>
+</div> -->
 
+<div
+[class.mt-24]="router.url !=='/'"
+[class.container]="router.url !=='/'"
+[class.mx-auto]="router.url !=='/'"
+>
+  <router-outlet></router-outlet>
+</div>
