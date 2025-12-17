@@ -1,7 +1,7 @@
-import { Component, inject, output } from '@angular/core';
+import { Component, inject, input, output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RegisterCred } from '../../app/models/user';
-import { AccountServiceService } from '../../app/services/account-service.service';
+import { RegisterCred, User } from '../../models/user';
+import { AccountServiceService } from '../../services/account-service.service';
 
 @Component({
   selector: 'app-register',
