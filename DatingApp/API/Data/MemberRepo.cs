@@ -6,6 +6,13 @@ namespace API.Data;
 
 public class MemberRepo(AppDbContext context) : IMemberRepo
 {
+    public async Task<Member?> GetMemberForUpdate(string id)
+    {
+        return await context.Members
+        .Include(x => x.User)
+        .SingleOrDefaultAsync(m => m.Id == id);
+    }
+
     async Task<Member?> IMemberRepo.GetMemberByIdAsync(string id)
     {
         return await context.Members.FindAsync(id);
@@ -20,7 +27,7 @@ public class MemberRepo(AppDbContext context) : IMemberRepo
     {
         return await context.Members
             .Where(p => p.Id == memberId)
-            .SelectMany(x=>x.Photos)
+            .SelectMany(x => x.Photos)
             .ToListAsync();
 
     }
